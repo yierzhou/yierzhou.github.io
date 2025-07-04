@@ -1,0 +1,80 @@
+baseURL : 'https://example.org/'
+languageCode : 'zh-cn'
+title : Yier's Blog
+theme : PaperMod
+
+defaultContentLanguage: zh
+defaultContentLanguageInSubdir: false
+
+languages:
+  zh:
+    languageName: "中文" # 展示的语言名
+    taxonomies:
+      tag: tags
+    menus:
+      main:
+      - name: Home
+        pageRef: /
+        weight: 10
+      - name: Archives
+        pageRef: /archives/
+        weight: 20
+      - name: Search
+        pageRef: /search/
+        weight: 30
+      - name: Tags
+        pageRef: /tags/
+        weight: 40
+      - name: About
+        pageRef: /about/
+        weight: 50
+
+params:
+  ShowToc: true
+  DateFormat: "2006-01-02"  # 日期格式化
+  ShowCodeCopyButtons: true
+  ShowPostNavLinks: true # 展示文章导航链接，就是下一页上一页的那个
+  homeInfoParams:
+    Title: "Hey Guys 👋"
+    Content: >
+      Welcome to my Blog! 这里主要记录了我的视频创作的一些补充说明材料。博客因为是托管在 Github 上面，以及，图床使用的是国外免费的 Postimages，所以，挂上一个梯子可能会让访问更加顺畅。
+
+  assets:
+      favicon: "favicon.png"
+      favicon16x16: "favicon.png"
+      favicon32x32: "favicon.png"
+      apple_touch_icon: "favicon.png"
+      safari_pinned_tab: "favicon.png"
+
+  #社交帐号的按钮
+  socialIcons: 
+    - name: github
+      title: Follow my Github
+      url: "https://github.com/yierzhou"
+    - name: Bilibili
+      title: 关注我的 B 站帐号
+      url: "https://space.bilibili.com/199342668"
+    - name: Telegram
+      title: Contact Me
+      url: "https://t.me/txzhou"
+    - name: rss
+      title: RSS Feed
+      url: "/index.xml"
+
+  # 搜索
+  fuseOpts:
+      isCaseSensitive: false # 是否大小写敏感
+      shouldSort: true # 是否排序
+      location: 0
+      distance: 1000
+      threshold: 0.4
+      minMatchCharLength: 0
+      # limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
+      keys: ["title", "permalink", "summary", "content"]
+      includeMatches: true
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search
